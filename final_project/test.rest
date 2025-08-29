@@ -1,0 +1,114 @@
+### Get all books
+GET http://localhost:5000/
+# ✅ Example Response (200):
+# {
+#   "1": {
+#     "author": "Chinua Achebe",
+#     "title": "Things Fall Apart",
+#     "reviews": {}
+#   },
+#   "2": { ... }
+# }
+
+---
+
+### Register a new user
+POST http://localhost:5000/register
+Content-Type: application/json
+
+{
+  "username": "alice",
+  "password": "12345"
+}
+# ✅ Example Response (201):
+# { "message": "User registered successfully." }
+#
+# ❌ If user already exists:
+# { "message": "Username already exists." }
+
+---
+
+### Login as registered user
+POST http://localhost:5000/customer/login
+Content-Type: application/json
+
+{
+  "username": "alice",
+  "password": "12345"
+}
+# ✅ Example Response (200):
+# "User successfully logged in"
+#
+# ❌ Wrong credentials:
+# { "message": "Invalid Login. Check username and password" }
+
+---
+
+### Add a review for a book (ISBN = 1)
+PUT http://localhost:5000/customer/auth/review/1?review=Great+book!
+# ✅ Example Response (200):
+# { "message": "Review for ISBN 1 successfully added/modified." }
+
+---
+
+### Delete the review for ISBN = 1
+DELETE http://localhost:5000/customer/auth/review/1
+# ✅ Example Response (200):
+# { "message": "Review for ISBN 1 by user alice successfully deleted." }
+#
+# ❌ If review doesn’t exist:
+# { "message": "Review not found for this user." }
+
+---
+
+### Get book by ISBN
+GET http://localhost:5000/isbn/1
+# ✅ Example Response (200):
+# {
+#   "author": "Chinua Achebe",
+#   "title": "Things Fall Apart",
+#   "reviews": {}
+# }
+
+---
+
+### Get books by author (exact match: Unknown)
+GET http://localhost:5000/author/Unknown
+# ✅ Example Response (200):
+# [
+#   {
+#     "author": "Unknown",
+#     "title": "The Epic Of Gilgamesh",
+#     "reviews": {}
+#   },
+#   {
+#     "author": "Unknown",
+#     "title": "The Book Of Job",
+#     "reviews": {}
+#   }
+# ]
+
+---
+
+### Get books by title (case-insensitive: Pride and Prejudice)
+GET http://localhost:5000/title/Pride and Prejudice
+# ✅ Example Response (200):
+# [
+#   {
+#     "author": "Jane Austen",
+#     "title": "Pride and Prejudice",
+#     "reviews": {}
+#   }
+# ]
+
+---
+
+### Get reviews for ISBN = 1
+GET http://localhost:5000/review/1
+# ✅ Example Response (200):
+# {
+#   "alice": "Great book!"
+# }
+#
+# ❌ If no reviews exist:
+# { "message": "No reviews found for this book." }

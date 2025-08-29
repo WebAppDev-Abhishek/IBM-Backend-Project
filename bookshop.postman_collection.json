@@ -1,0 +1,80 @@
+{
+  "info": {
+    "name": "Bookshop API",
+    "_postman_id": "12345-abcde-67890",
+    "description": "Collection for testing Express Bookshop API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Register User",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"alice\",\n  \"password\": \"12345\"\n}"
+        },
+        "url": { "raw": "http://localhost:5000/register", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["register"] }
+      }
+    },
+    {
+      "name": "Login User",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"alice\",\n  \"password\": \"12345\"\n}"
+        },
+        "url": { "raw": "http://localhost:5000/customer/login", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["customer","login"] }
+      }
+    },
+    {
+      "name": "Get All Books",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "http://localhost:5000/", "protocol": "http", "host": ["localhost"], "port": "5000", "path": [""] }
+      }
+    },
+    {
+      "name": "Get Book by ISBN",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "http://localhost:5000/isbn/1", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["isbn","1"] }
+      }
+    },
+    {
+      "name": "Get Books by Author",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "http://localhost:5000/author/Jane Austen", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["author","Jane Austen"] }
+      }
+    },
+    {
+      "name": "Get Books by Title",
+      "request": {
+        "method": "GET",
+        "url": { "raw": "http://localhost:5000/title/Pride and Prejudice", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["title","Pride and Prejudice"] }
+      }
+    },
+    {
+      "name": "Add / Update Review",
+      "request": {
+        "method": "PUT",
+        "url": { "raw": "http://localhost:5000/customer/auth/review/1?review=Amazing book!", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["customer","auth","review","1"], "query": [{ "key": "review", "value": "Amazing book!" }] }
+      }
+    },
+    {
+      "name": "Delete Review",
+      "request": {
+        "method": "DELETE",
+        "url": { "raw": "http://localhost:5000/customer/auth/review/1", "protocol": "http", "host": ["localhost"], "port": "5000", "path": ["customer","auth","review","1"] }
+      }
+    }
+  ]
+}

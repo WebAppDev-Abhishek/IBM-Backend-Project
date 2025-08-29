@@ -168,3 +168,7 @@ final_project/
 ## 👨‍💻 Author
 
 Developed as part of the **IBM Full Stack Developer Project**.  
+
+<img width="1141" height="1000" alt="A1vsCode" src="https://github.com/user-attachments/assets/0ece4803-f550-47e8-83a4-aa29768e3dfb" />
+
+
